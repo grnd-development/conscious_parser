@@ -40,7 +40,8 @@ class ParserService {
 
         stdout.write("\x1B\[\1\A"); // Перемещение курсора на строку вверх
         stdout.write("\x1B\[\K"); // Очистка строки
-        stdout.write("Product Name: ${product.name} - Id: ${product.id}\n");
+        stdout.write(
+            "Product Name: ${product.name} - Id: ${product.id}\n");
       }
 
       await dataInJsonService.setData(products, page);
@@ -49,16 +50,6 @@ class ParserService {
         run = false;
       }
     }
-  }
-
-  Future<ProductModel?> getProduct(dynamic id) async {
-    final p = await productsRequest.getProduct(id);
-    if (p == null) return null;
-    ProductModel product = await ChatGptServices(product: p.toProductModel(p))
-        .addInformationFromChatGpt();
-
-    await productsRequest.uploadProduct(product);
-    return product;
   }
 
   Future<ProductModel?> getProductOpenFoodFacts(dynamic id) async {
