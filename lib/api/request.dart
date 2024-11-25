@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:main/api/products/dto.dart';
+import 'package:conscious_parser/api/products/dto.dart';
 
 class Request {
   final String baseUrl;

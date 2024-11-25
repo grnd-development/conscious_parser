@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:main/api/openAi/request.dart';
-import 'package:main/api/products/dto.dart';
+import 'package:conscious_parser/api/openAi/request.dart';
+import 'package:conscious_parser/api/products/dto.dart';
 
 class ChatGptServices {
   final ProductModel product;

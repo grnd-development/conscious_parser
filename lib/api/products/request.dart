@@ -1,5 +1,5 @@
-import 'package:main/api/products/dto.dart';
-import 'package:main/api/request.dart';
+import 'package:conscious_parser/api/products/dto.dart';
+import 'package:conscious_parser/api/request.dart';
 
 class ProductsRequest {
   final String openFoodFactsUrl = "world.openfoodfacts.org";

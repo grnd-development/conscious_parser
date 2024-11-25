@@ -1,9 +1,9 @@
 import 'dart:io';
 
-import 'package:main/api/products/dto.dart';
-import 'package:main/api/products/request.dart';
-import 'package:main/services/chat_gpt_services.dart';
-import 'package:main/services/data_in_json_service.dart';
+import 'package:conscious_parser/api/products/dto.dart';
+import 'package:conscious_parser/api/products/request.dart';
+import 'package:conscious_parser/services/chat_gpt_services.dart';
+import 'package:conscious_parser/services/data_in_json_service.dart';
 
 class ParserService {
   final ProductsRequest productsRequest = ProductsRequest();

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:main/api/products/dto.dart';
+import 'package:conscious_parser/api/products/dto.dart';
 
 class DataInJsonService {
   static final String dataPath = "data";

@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:main/api/openAi/dto.dart';
-import 'package:main/api/products/dto.dart';
-import 'package:main/api/request.dart';
+import 'package:conscious_parser/api/openAi/dto.dart';
+import 'package:conscious_parser/api/products/dto.dart';
+import 'package:conscious_parser/api/request.dart';
 
 class OpenAiRequest {
   final String baseUrl = "api.openai.com";
