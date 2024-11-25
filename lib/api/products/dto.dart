@@ -1,5 +1,3 @@
-// ignore_for_file: non_constant_identifier_names
-
 import 'dart:convert';
 
 import 'package:json_annotation/json_annotation.dart';
@@ -49,20 +47,20 @@ class ProductResponseModel {
 
   ProductResponseModel(
       {this.id,
-      this.productNameEn,
-      this.brands,
-      this.ingredientsText,
-      this.categories,
-      this.categoriesLc,
-      this.labels,
-      this.link,
-      this.stores,
-      this.allergens,
-      this.packaging,
-      this.quantity,
-      this.ecoScoreData,
-      this.needWater,
-      this.facts});
+        this.productNameEn,
+        this.brands,
+        this.ingredientsText,
+        this.categories,
+        this.categoriesLc,
+        this.labels,
+        this.link,
+        this.stores,
+        this.allergens,
+        this.packaging,
+        this.quantity,
+        this.ecoScoreData,
+        this.needWater,
+        this.facts});
 
   factory ProductResponseModel.fromJson(Map<String, dynamic> json) =>
       _$ProductResponseModelFromJson(json);
@@ -70,36 +68,36 @@ class ProductResponseModel {
   Map<String, dynamic> toJson() => _$ProductResponseModelToJson(this);
 
   ProductModel toProductModel(ProductResponseModel product) => ProductModel(
-        id: getId(product.id),
-        name: product.productNameEn?.isNotEmpty ?? false
-            ? product.productNameEn
-            : product.genericName,
-        brands: product.brands.toString(),
-        ingredientsText: product.ingredientsText,
-        categories: product.categoriesLc == "en"
-            ? product.categories.toString()
-            : "null",
-        labels: (product.labels?.isNotEmpty ?? false ? product.labels : "null")
-            .toString()
-            .truncateString(),
-        link: (product.link?.isNotEmpty ?? false ? product.link : "null")
-            ?.truncateString(),
-        stores: (product.stores?.isNotEmpty ?? false ? product.stores : "null")
-            .toString(),
-        allergens:
-            product.allergens?.isNotEmpty ?? false ? product.allergens : "null",
-        packaging: (product.packaging?.isNotEmpty ?? false)
-            ? product.packaging
-            : "null",
-        quantity:
-            (product.quantity?.isNotEmpty ?? false) ? product.quantity : "null",
-        needWater: product.needWater,
-        facts: jsonEncode(product.facts),
-        miles: product.ecoScoreData?.miles,
-        submissionImage: product.imageUrl,
-        co2Total: getCo2(product),
-        barcode: product.id.toString(),
-      );
+    id: getId(product.id),
+    name: product.productNameEn?.isNotEmpty ?? false
+        ? product.productNameEn
+        : product.genericName,
+    brands: product.brands.toString(),
+    ingredientsText: product.ingredientsText,
+    categories: product.categoriesLc == "en"
+        ? product.categories.toString()
+        : "null",
+    labels: (product.labels?.isNotEmpty ?? false ? product.labels : "null")
+        .toString()
+        .truncateString(),
+    link: (product.link?.isNotEmpty ?? false ? product.link : "null")
+        ?.truncateString(),
+    stores: (product.stores?.isNotEmpty ?? false ? product.stores : "null")
+        .toString(),
+    allergens:
+    product.allergens?.isNotEmpty ?? false ? product.allergens : "null",
+    packaging: (product.packaging?.isNotEmpty ?? false)
+        ? product.packaging
+        : "null",
+    quantity:
+    (product.quantity?.isNotEmpty ?? false) ? product.quantity : "null",
+    needWater: product.needWater,
+    facts: jsonEncode(product.facts),
+    miles: product.ecoScoreData?.miles,
+    submissionImage: product.imageUrl,
+    co2Total: getCo2(product),
+    barcode: product.id.toString(),
+  );
 
   getId(id) {
     if (id.runtimeType == String) {
@@ -108,19 +106,6 @@ class ProductResponseModel {
       return id;
     }
   }
-}
-
-@JsonSerializable()
-class ProductsListModel {
-  List<ProductModel>? products;
-  int? page;
-
-  ProductsListModel({this.products, this.page});
-
-  factory ProductsListModel.fromJson(Map<String, dynamic> json) =>
-      _$ProductsListModelFromJson(json);
-
-  Map<String, dynamic> toJson() => _$ProductsListModelToJson(this);
 }
 
 @JsonSerializable()
@@ -151,28 +136,41 @@ class ProductModel {
 
   ProductModel(
       {this.id,
-      this.name,
-      this.brands,
-      this.ingredientsText,
-      this.categories,
-      this.labels,
-      this.link,
-      this.stores,
-      this.allergens,
-      this.packaging,
-      this.quantity,
-      this.submissionImage,
-      this.needWater,
-      this.facts,
-      this.miles,
-      this.co2Total,
-      this.barcode,
-      this.isFavorited});
+        this.name,
+        this.brands,
+        this.ingredientsText,
+        this.categories,
+        this.labels,
+        this.link,
+        this.stores,
+        this.allergens,
+        this.packaging,
+        this.quantity,
+        this.submissionImage,
+        this.needWater,
+        this.facts,
+        this.miles,
+        this.co2Total,
+        this.barcode,
+        this.isFavorited});
 
   factory ProductModel.fromJson(Map<String, dynamic> json) =>
       _$ProductModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ProductModelToJson(this);
+}
+
+@JsonSerializable()
+class ProductsListModel {
+  List<ProductModel>? products;
+  int? page;
+
+  ProductsListModel({this.products, this.page});
+
+  factory ProductsListModel.fromJson(Map<String, dynamic> json) =>
+      _$ProductsListModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ProductsListModelToJson(this);
 }
 
 @JsonSerializable()
@@ -269,7 +267,7 @@ extension StringExtension on String {
     if (this.length <= maxLength) {
       return this;
     } else {
-      return this.substring(0, maxLength) + '...';
+      return '${this.substring(0, maxLength)}...';
     }
   }
 }
